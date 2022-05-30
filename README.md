@@ -160,14 +160,38 @@ vi. Enable override mode in PLLE2 Tab and compensation as BUF_IN
 
 ![image](https://user-images.githubusercontent.com/66086031/170991820-ce13bcb2-3d7d-460f-b799-7c679dc8f7ea.png)
 
+vii. Click Finish
+
 ### ILA ( Integrated Logic Analyzer )
 
 - It is used for monitoring internal signals in our design
 
+i. Search ILA in the IP catalog and select Integrated Logic Analyzer
 
+ii. Set number of probes as 3 and sample depth as 131072
 
+![image](https://user-images.githubusercontent.com/66086031/170993225-9b609307-ab09-4456-a6fe-f81d422f3a2a.png)
 
+iii. Set probe length as 8 bits
 
+![image](https://user-images.githubusercontent.com/66086031/170993270-60552a29-ce4f-4106-b5bb-1dd2e78f57e9.png)
+
+iv. Click Finish
+
+## RTL Simulation in Vivdo
+
+i. Add top_SoC_tb.v as source.
+
+ii. Run RTL Simulation and run for 50000 units
+
+![image](https://user-images.githubusercontent.com/66086031/170995605-c5df6b26-ed34-4ba2-8002-399605e005e6.png)
+
+33 MHz clock is the input
+10n MHz clock generated for Core
+
+iii. Also view the DAC signal as analog format
+
+![image](https://user-images.githubusercontent.com/66086031/170995805-ef6294e0-d240-4f7b-a5a9-290c1a603b5c.png)
 
 
 
