@@ -1,12 +1,34 @@
-## Introdution
+<!-- TOC start -->
+- [Introduction](#introduction)
+  * [Mixed-Signal Design](#mixed-signal-design)
+  * [Verification](#verification)
+- [RVMYTH RISC-V Core](#rvmyth-risc-v-core)
+- [TL - Verilog](#tl---verilog)
+  * [Timing Abstraction](#timing-abstraction)
+- [ASIC Vs FPGA](#asic-vs-fpga)
+- [Makerchip](#makerchip)
+- [TLV to RTL](#tlv-to-rtl)
+  * [Steps to convert TL - Verilog to System Verilog/verilog](#steps-to-convert-tl---verilog-to-system-verilogverilog)
+- [iverilog Simulation](#iverilog-simulation)
+  * [Assembly Program in the .tlv file](#assembly-program-in-the-tlv-file)
+  * [iverilog flow](#iverilog-flow)
+- [FPGA Flow](#fpga-flow)
+  * [PLL](#pll)
+  * [ILA ( Integrated Logic Analyzer )](#ila--integrated-logic-analyzer-)
+- [RTL Simulation in Vivado](#rtl-simulation-in-vivado)
+- [FPGA Synthesis](#fpga-synthesis)
+- [Bit-stream Generation and Program FPGA Step](#bit-stream-generation-and-program-fpga-step)
+- [Acknowledgements](#acknowledgements)
+<!-- TOC end -->
+## Introduction
 
 ![image](https://user-images.githubusercontent.com/66086031/170964933-988ad758-8094-4207-9052-456dd3baeae1.png)
 
-### Mixed Signal Design
+### Mixed-Signal Design
 
 - Analog IP and Digital IP on the same package (chip)
 - In this workshop, **RVMYTH** is interfaced with a PLL **(avsdpll_1v8)**
-- PLL acts a multiplier here
+- PLL acts as a multiplier here
 
 ### Verification
 Verification is done in two parts
@@ -17,14 +39,14 @@ Verification is done in two parts
 
 - RV32I Instruction Set
 - Written in TL - Verilog
-- 5 staged Piplined processor
+- 5 staged Pipelined processor
   * Fetch Stage
   * Decode Stage
   * Execute Stage
   * Memory Access Stage
   * Register Write Back Stage 
 - Data Hazards solved using Register Bypass (forwarding0 technique
-- b - type and j - type instructions have two cycle latency 
+- b - type and j - type instructions have two-cycle latency 
 
 ## TL - Verilog
 
@@ -45,10 +67,10 @@ Verification is done in two parts
 ```
 
 - TL - Verilog makes retiming extremely easy.
-- In System Verilog/Verilog when we want to added more pipeline stages, we have to create more flip flops and also duplicate the signal declarations for each pipeline stage
+- In System Verilog/Verilog when we want to add more pipeline stages, we have to create more flip flops and also duplicate the signal declarations for each pipeline stage
 - In TL - Verilog, we just have to move the computation to a different pipeline stage
 
-Example - warp - V core created by Steve Hoover, founder EDA, is a highly parameterized processor
+Example - warp - V core created by Steve Hoover, founder of EDA, is a highly parameterized processor
 
 ## ASIC Vs FPGA
 
@@ -83,7 +105,7 @@ iii. In this I replaced rvmyth.tlv with my **own TL - Verilog RISC-V Core**, whi
  
 ![image](https://user-images.githubusercontent.com/66086031/170975385-49ab2cc6-4cb2-46a2-ab9e-ff28518fb1b3.png)
 
-iv. Make some changes in the ```.tlv``` file to include proper module name and assembly program for the counter
+iv. Make some changes in the ```.tlv``` file to include the proper module name and assembly program for the counter
 
 ![image](https://user-images.githubusercontent.com/66086031/170981805-93df0f8f-10bf-4310-a5cb-2c9787dd3676.png)
 
@@ -105,7 +127,7 @@ We shall now verify the PLL.
 
 ### Assembly Program in the .tlv file
 
-- This program basically generates a waveform whose values starts from 0 to 255 and back again.
+- This program basically generates a waveform whose values start from 0 to 255 and back again.
 
 ### iverilog flow
 
@@ -120,7 +142,7 @@ gtkwave rvmyth_pll.vcd
 ![image](https://user-images.githubusercontent.com/66086031/170987200-1c16d47a-a814-4f5a-bf5b-96b2f8ec07ff.png)
 
 
-- The PLL Output becomes the input to the RISC V Core.
+- The PLL output becomes the input to the RISC V Core.
 - We can also the view the signal in analog format
 
 ![image](https://user-images.githubusercontent.com/66086031/170987365-20a455a8-2ffc-4efe-b578-3280afcd5c07.png)
@@ -150,7 +172,7 @@ iv. Generate PLL and ILA IP from Xilinx Catalog
 
 ![image](https://user-images.githubusercontent.com/66086031/170990494-9116b07f-a26c-4437-b466-a84f56c21c6b.png)
 
-v. Select PLL and 33 MHz as input clock
+v. Select PLL and 33 MHz as the input clock
 
 ![image](https://user-images.githubusercontent.com/66086031/170991098-a0bcdc05-89be-423c-8649-a1678414a03b.png)
 
@@ -167,7 +189,7 @@ vii. Click Finish
 
 - It is used for monitoring internal signals in our design
 
-i. Search ILA in the IP catalog and select Integrated Logic Analyzer
+i. Search ILA in the IP catalogue and select Integrated Logic Analyzer
 
 ii. Set number of probes as 3 and sample depth as 131072
 
@@ -216,7 +238,7 @@ iii. Now run Implementation
 - Routing
 
 ![image](https://user-images.githubusercontent.com/66086031/171000165-cbb1fd4c-bdd7-4cb8-884c-5db381795bc6.png)
-- It fails to meeting timing constraints
+- It fails to meet timing constraints
 
 ![image](https://user-images.githubusercontent.com/66086031/171000265-8d303193-4c77-4586-8642-ccb7a06f7ea6.png)
 
@@ -224,7 +246,7 @@ iii. Now run Implementation
 
 ![image](https://user-images.githubusercontent.com/66086031/171000422-100188ca-2eb5-4171-975f-ea55de39f71f.png)
 
-- It is actaully due to false path from PLL to ILA.
+- It is actually due to a false path from PLL to ILA.
 
 ![image](https://user-images.githubusercontent.com/66086031/171000759-ae4d27db-24c2-41ca-b827-dfe8fe977b94.png)
 
@@ -239,13 +261,13 @@ set_false_path -hold -from [get_pins uut1/inst/plle2_adv_inst/CLKOUT0] -to [get_
 
 ![image](https://user-images.githubusercontent.com/66086031/171002717-62a38a26-0861-4625-8961-eef7bf9902bd.png)
 
-v. Implementated Design
+v. Implementation Design
 
 ![image](https://user-images.githubusercontent.com/66086031/171008237-cfddaa6a-579c-4bd6-88ad-a05c204f00fd.png)
 
 ## Bit-stream Generation and Program FPGA Step
 
-(This shall be done later after I obtain an Zedboard)
+(This shall be done later after I obtain a Zedboard)
 
 ## Acknowledgements
 
