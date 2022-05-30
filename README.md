@@ -178,7 +178,7 @@ iii. Set probe length as 8 bits
 
 iv. Click Finish
 
-## RTL Simulation in Vivdo
+## RTL Simulation in Vivado
 
 i. Add top_SoC_tb.v as source.
 
@@ -193,6 +193,18 @@ iii. Also view the DAC signal as analog format
 
 ![image](https://user-images.githubusercontent.com/66086031/170995805-ef6294e0-d240-4f7b-a5a9-290c1a603b5c.png)
 
+## FPGA Synthesis
+
+- Synthesis - mapping the netlist to the standard cell libraries or the actual the gates present in the FPGA
+- Constraints file specifies pin mapping for simulation 
+
+i. Add constraints file ```constraints.xdc```
+
+![image](https://user-images.githubusercontent.com/66086031/170997290-cae30ba3-eb88-46fe-9646-4e9676f5230d.png)
+
+ii. Run synthesis
+
+![image](https://user-images.githubusercontent.com/66086031/170997849-a67fb810-208c-4ff3-b5a3-f28c4573860a.png)
 
 
 
