@@ -259,7 +259,7 @@ set_false_path -hold -from [get_pins uut1/inst/plle2_adv_inst/CLKOUT0] -to [get_
 set_false_path -hold -from [get_pins uut1/inst/plle2_adv_inst/CLKOUT0] -to [get_pins uut3/inst/ila_core_inst/u_trig/u_trig/U_TM/N_DDR_MODE.G_NMU[2] .U_M/allx_typeA_match_detection.ltlib_v1_0_0_allx_typeA_inst/*/D]
 ```
 
-![image](https://user-images.githubusercontent.com/66086031/171002717-62a38a26-0861-4625-8961-eef7bf9902bd.png)
+![image](https://user-images.githubusercontent.com/66086031/171008893-bfdca8b1-3482-4991-bfc5-52893e9830cc.png)
 
 v. Implementation Design
 
