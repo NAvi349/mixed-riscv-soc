@@ -11,7 +11,7 @@
 ### Verification
 Verification is done in two parts
 - RTL Flow (iverilog and GTKwave)
-- FPGA Flow (Xilinx Vivaldo)
+- FPGA Flow (Xilinx Vivado)
 
 ## RVMYTH RISC-V Core
 
@@ -65,7 +65,7 @@ Example - warp - V core created by Steve Hoover, founder EDA, is a highly parame
 
 - **Icarus Verilog** - RTL Simulation Tool
 - **GTKWave **- waveform viewer 
-- Vivaldo HL Design Edition 
+- Vivado HL Design Edition 
 
 - SandPiper SaaS - converts to TLV to Verilog/System Verilog
 - Installation link - https://pypi.org/project/sandpiper/
@@ -117,9 +117,55 @@ gtkwave rvmyth_pll.vcd
 ```
 ![image](https://user-images.githubusercontent.com/66086031/170985703-7400ec86-0ee8-4961-ab8c-fb9645aaa76d.png)
 
-![image](https://user-images.githubusercontent.com/66086031/170986915-c5d5e4cb-41e4-4a31-9165-0a05478bedb2.png)
+![image](https://user-images.githubusercontent.com/66086031/170987200-1c16d47a-a814-4f5a-bf5b-96b2f8ec07ff.png)
+
 
 - The PLL Output becomes the input to the RISC V Core.
+- We can also the view the signal in analog format
+
+![image](https://user-images.githubusercontent.com/66086031/170987365-20a455a8-2ffc-4efe-b578-3280afcd5c07.png)
+
+![image](https://user-images.githubusercontent.com/66086031/170987474-56325ebf-99b7-4235-adb7-ce7210a85e07.png)
+
+## FPGA Flow
+
+![image](https://user-images.githubusercontent.com/66086031/170987645-1d58af17-7dc9-445b-979e-b04f63319791.png)
+
+- PPLE is the Xilinx Vivado IP.
+
+### PLL
+
+i. Create a new project
+ii. Select the zedboard from the parts list.
+
+![image](https://user-images.githubusercontent.com/66086031/170989639-abff4790-b92d-4ebf-8ce5-396eafb920c0.png)
+
+iii. Add rvmyth.v, top_SoC.v and clk_gate.v as design sources
+
+![image](https://user-images.githubusercontent.com/66086031/170989700-abf3b5d0-3918-4f94-8407-c0a51c276bef.png)
+![image](https://user-images.githubusercontent.com/66086031/170989943-477d84eb-91f6-4031-a78c-e0b837324e09.png)
+
+iv. Generate PLL and ILA IP from Xilinx Catalog
+
+![image](https://user-images.githubusercontent.com/66086031/170990494-9116b07f-a26c-4437-b466-a84f56c21c6b.png)
+
+v. Select PLL and 33 MHz as input clock
+
+![image](https://user-images.githubusercontent.com/66086031/170991098-a0bcdc05-89be-423c-8649-a1678414a03b.png)
+
+![image](https://user-images.githubusercontent.com/66086031/170991052-a4a28dad-e60b-48ea-b8d5-1e490ee5171b.png)
+
+vi. Enable override mode in PLLE2 Tab and compensation as BUF_IN 
+![image](https://user-images.githubusercontent.com/66086031/170992657-f614fc0c-acd3-4e67-be4a-0e7554bb9412.png)
+
+![image](https://user-images.githubusercontent.com/66086031/170991820-ce13bcb2-3d7d-460f-b799-7c679dc8f7ea.png)
+
+### ILA ( Integrated Logic Analyzer )
+
+- It is used for monitoring internal signals in our design
+
+
+
 
 
 
