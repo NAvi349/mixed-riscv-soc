@@ -80,9 +80,9 @@ iii. In this I replaced rvmyth.tlv with my **own TL - Verilog RISC-V Core**, whi
  
 ![image](https://user-images.githubusercontent.com/66086031/170975385-49ab2cc6-4cb2-46a2-ab9e-ff28518fb1b3.png)
 
-iv. Give the module name properly ```.tlv``` file
+iv. Make some changes in the ```.tlv``` file to include proper module name and assembly program for the counter
 
-![image](https://user-images.githubusercontent.com/66086031/170980065-670f0c05-d426-4fc9-bd72-0c3fc1cf5c74.png)
+![image](https://user-images.githubusercontent.com/66086031/170981805-93df0f8f-10bf-4310-a5cb-2c9787dd3676.png)
 
 v. ```sandpiper-saas -i pip_riscv_rv32I.tlv -o pip_riscv_rv32I.v --iArgs```
 
