@@ -86,19 +86,25 @@ iv. Make some changes in the ```.tlv``` file to include proper module name and a
 
 v. ```sandpiper-saas -i pip_riscv_rv32I.tlv -o pip_riscv_rv32I.v --iArgs```
 
-![image](https://user-images.githubusercontent.com/66086031/170980263-8fff8677-5403-4318-b7b2-75901b91d58b.png)
+![image](https://user-images.githubusercontent.com/66086031/170982405-97cbd92c-36c1-4799-9187-3425580ec15a.png)
 
 - The verilog files were successfully generated for my RISC-V Core.
 
 vi. Instantiate the RISC-V core in the ```rvmyth_pll.v``` file
 
-![image](https://user-images.githubusercontent.com/66086031/170980278-be7c8068-131a-4130-bbf8-388aa39c49ae.png)
+![image](https://user-images.githubusercontent.com/66086031/170982911-f3f301f4-18d6-430c-99a2-83c98aa896e2.png)
 
 
 We shall now verify the PLL.
 ![image](https://user-images.githubusercontent.com/66086031/170978505-eb76091b-fbbd-40e6-9748-b1a4f465d178.png)
 
-##
+## iverilog Simulation
+
+### Assembly Program in the .tlv file
+
+- This program basically generates a waveform which oscillates from 0 to 255 and back again.
+
+
 
 
 
