@@ -47,3 +47,9 @@ Verification is done in two parts
 - TL - Verilog makes retiming extremely easy.
 - In System Verilog/Verilog when we want to added more pipeline stages, we have to create more flip flops and also duplicate the signal declarations for each pipeline stage
 - In TL - Verilog, we just have to move the computation to a different pipeline stage
+
+Example - warp - V core created by Steve Hoover, founder EDA, is a highly parameterized processor
+
+## ASIC Vs FPGA
+
+|ASIC|FPGA|
