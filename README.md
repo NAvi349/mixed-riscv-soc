@@ -10,7 +10,7 @@
 
 ### Verification
 Verification is done in two parts
-- RTL Flow (iverilog and gtkwave)
+- RTL Flow (iverilog and GTKwave)
 - FPGA Flow (Xilinx Vivaldo)
 
 ## RVMYTH RISC-V Core
@@ -57,3 +57,50 @@ Example - warp - V core created by Steve Hoover, founder EDA, is a highly parame
 | Not reconfigurable            | Reconfigurable |
 | Final Stage implementation    | Useful in prototyping a design|  
 | Huge time required to design  | Less Time Comparatively      |
+
+
+## Makerchip
+
+## TLV to RTL
+
+- **Icarus Verilog** - RTL Simulation Tool
+- **GTKWave **- waveform viewer 
+- Vivaldo HL Design Edition 
+
+- SandPiper SaaS - converts to TLV to Verilog/System Verilog
+- Installation link - https://pypi.org/project/sandpiper/
+
+### Steps to convert TL - Verilog to System Verilog/verilog
+
+i. ```git clone https://github.com/shivanishah269/risc-v-core.git```
+ii. ```cd vsdfpga/verilog```
+
+In this I replaced rvmyth.tlv with my **own TL - Verilog RISC-V Core**, which I designed as part of the 5 - Day RVMYTH Workshop
+Details of it can be found here: https://github.com/NAvi349/riscv-myth-ws
+
+![image](https://user-images.githubusercontent.com/66086031/170980065-670f0c05-d426-4fc9-bd72-0c3fc1cf5c74.png)
+- Give the module name properly
+
+![image](https://user-images.githubusercontent.com/66086031/170975385-49ab2cc6-4cb2-46a2-ab9e-ff28518fb1b3.png)
+
+iii. ```sandpiper-saas -i pip_riscv_rv32I.tlv -o pip_riscv_rv32I.v --iArgs```
+
+![image](https://user-images.githubusercontent.com/66086031/170980263-8fff8677-5403-4318-b7b2-75901b91d58b.png)
+
+![image](https://user-images.githubusercontent.com/66086031/170977900-de8f0caa-e190-4388-806c-70af436fe83e.png)
+
+![image](https://user-images.githubusercontent.com/66086031/170980278-be7c8068-131a-4130-bbf8-388aa39c49ae.png)
+
+- The verilog files were successfully generated for my RISC-V Core.
+
+We shall now verify the PLL.
+![image](https://user-images.githubusercontent.com/66086031/170978505-eb76091b-fbbd-40e6-9748-b1a4f465d178.png)
+
+##
+
+
+
+
+
+
+
