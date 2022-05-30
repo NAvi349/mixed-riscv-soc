@@ -55,5 +55,5 @@ Example - warp - V core created by Steve Hoover, founder EDA, is a highly parame
 | ASIC                          | FPGA           |
 | ---------------------         |:-------------: |
 | Not reconfigurable            | Reconfigurable |
-| col 2 is                      | Useful in prototyping a design|  
+| Final Stage implementation    | Useful in prototyping a design|  
 | Huge time required to design  | Less Time Comparatively      |
