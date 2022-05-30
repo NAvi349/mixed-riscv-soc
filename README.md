@@ -52,4 +52,4 @@ Example - warp - V core created by Steve Hoover, founder EDA, is a highly parame
 
 ## ASIC Vs FPGA
 
-|ASIC|FPGA|
+| ASIC | FPGA |
