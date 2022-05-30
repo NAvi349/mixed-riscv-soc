@@ -77,20 +77,23 @@ ii. ```cd vsdfpga/verilog```
 
 iii. In this I replaced rvmyth.tlv with my **own TL - Verilog RISC-V Core**, which I designed as part of the 5 - Day RVMYTH Workshop.
  Details of it can be found here: https://github.com/NAvi349/riscv-myth-ws
+ 
+![image](https://user-images.githubusercontent.com/66086031/170975385-49ab2cc6-4cb2-46a2-ab9e-ff28518fb1b3.png)
 
-iv. Give the module name properly
+iv. Give the module name properly ```.tlv``` file
+
 ![image](https://user-images.githubusercontent.com/66086031/170980065-670f0c05-d426-4fc9-bd72-0c3fc1cf5c74.png)
 
 v. ```sandpiper-saas -i pip_riscv_rv32I.tlv -o pip_riscv_rv32I.v --iArgs```
-![image](https://user-images.githubusercontent.com/66086031/170975385-49ab2cc6-4cb2-46a2-ab9e-ff28518fb1b3.png)
-
 
 ![image](https://user-images.githubusercontent.com/66086031/170980263-8fff8677-5403-4318-b7b2-75901b91d58b.png)
 
+- The verilog files were successfully generated for my RISC-V Core.
+
+vi. Instantiate the RISC-V core in the ```rvmyth_pll.v``` file
 
 ![image](https://user-images.githubusercontent.com/66086031/170980278-be7c8068-131a-4130-bbf8-388aa39c49ae.png)
 
-- The verilog files were successfully generated for my RISC-V Core.
 
 We shall now verify the PLL.
 ![image](https://user-images.githubusercontent.com/66086031/170978505-eb76091b-fbbd-40e6-9748-b1a4f465d178.png)
