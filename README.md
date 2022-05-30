@@ -135,7 +135,8 @@ gtkwave rvmyth_pll.vcd
 
 ### PLL
 
-i. Create a new project
+i. Create a new project.
+
 ii. Select the zedboard from the parts list.
 
 ![image](https://user-images.githubusercontent.com/66086031/170989639-abff4790-b92d-4ebf-8ce5-396eafb920c0.png)
@@ -202,9 +203,55 @@ i. Add constraints file ```constraints.xdc```
 
 ![image](https://user-images.githubusercontent.com/66086031/170997290-cae30ba3-eb88-46fe-9646-4e9676f5230d.png)
 
-ii. Run synthesis
+ii. Run Synthesis
 
 ![image](https://user-images.githubusercontent.com/66086031/170997849-a67fb810-208c-4ff3-b5a3-f28c4573860a.png)
+
+![image](https://user-images.githubusercontent.com/66086031/170999060-27c68713-b223-482d-b378-f4ec16c9f5fd.png)
+
+iii. Now run Implementation
+
+- Optimization
+- Placing
+- Routing
+
+![image](https://user-images.githubusercontent.com/66086031/171000165-cbb1fd4c-bdd7-4cb8-884c-5db381795bc6.png)
+- It fails to meeting timing constraints
+
+![image](https://user-images.githubusercontent.com/66086031/171000265-8d303193-4c77-4586-8642-ccb7a06f7ea6.png)
+
+- Slack is negative here for hold
+
+![image](https://user-images.githubusercontent.com/66086031/171000422-100188ca-2eb5-4171-975f-ea55de39f71f.png)
+
+- It is actaully due to false path from PLL to ILA.
+
+![image](https://user-images.githubusercontent.com/66086031/171000759-ae4d27db-24c2-41ca-b827-dfe8fe977b94.png)
+
+iv. Solving Timing Issues
+
+- Include these in the ```constraints.sdc``` file
+
+```
+set_false_path -hold -from [get_pins uut1/inst/plle2_adv_inst/CLKOUT0] -to [get_pins uut3/inst/ila_core_inst/*D]
+set_false_path -hold -from [get_pins uut1/inst/plle2_adv_inst/CLKOUT0] -to [get_pins uut3/inst/ila_core_inst/u_trig/u_trig/U_TM/N_DDR_MODE.G_NMU[2] .U_M/allx_typeA_match_detection.ltlib_v1_0_0_allx_typeA_inst/*/D]
+```
+
+![image](https://user-images.githubusercontent.com/66086031/171002717-62a38a26-0861-4625-8961-eef7bf9902bd.png)
+
+v. Implementated Design
+
+![image](https://user-images.githubusercontent.com/66086031/171008237-cfddaa6a-579c-4bd6-88ad-a05c204f00fd.png)
+
+## Bit-stream Generation and Program FPGA Step
+
+(This shall be done later after I obtain an Zedboard)
+
+## Acknowledgements
+
+[1] Kunal Ghosh - Founder, VSD
+
+[2] Shivani Shah - Course Instructor
 
 
 
