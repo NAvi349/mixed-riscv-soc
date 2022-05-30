@@ -75,6 +75,9 @@ Example - warp - V core created by Steve Hoover, founder EDA, is a highly parame
 i. ```git clone https://github.com/shivanishah269/risc-v-core.git```
 ii. ```cd vsdfpga/verilog```
 
+![image](https://user-images.githubusercontent.com/66086031/170985413-093cc1bc-83b5-446a-855d-6f628e3194b1.png)
+
+<!--
 iii. In this I replaced rvmyth.tlv with my **own TL - Verilog RISC-V Core**, which I designed as part of the 5 - Day RVMYTH Workshop.
  Details of it can be found here: https://github.com/NAvi349/riscv-myth-ws
  
@@ -94,7 +97,7 @@ vi. Instantiate the RISC-V core in the ```rvmyth_pll.v``` file
 
 ![image](https://user-images.githubusercontent.com/66086031/170982911-f3f301f4-18d6-430c-99a2-83c98aa896e2.png)
 
-
+-->
 We shall now verify the PLL.
 ![image](https://user-images.githubusercontent.com/66086031/170978505-eb76091b-fbbd-40e6-9748-b1a4f465d178.png)
 
@@ -103,6 +106,21 @@ We shall now verify the PLL.
 ### Assembly Program in the .tlv file
 
 - This program basically generates a waveform whose values starts from 0 to 255 and back again.
+
+### iverilog flow
+
+```console
+iverilog rvmyth_pll_tb.v rvmyth_pll.v clk_gate.v 
+./a.out
+gtkwave rvmyth_pll.vcd
+
+```
+![image](https://user-images.githubusercontent.com/66086031/170985703-7400ec86-0ee8-4961-ab8c-fb9645aaa76d.png)
+
+![image](https://user-images.githubusercontent.com/66086031/170986915-c5d5e4cb-41e4-4a31-9165-0a05478bedb2.png)
+
+- The PLL Output becomes the input to the RISC V Core.
+
 
 
 
