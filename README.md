@@ -102,7 +102,7 @@ We shall now verify the PLL.
 
 ### Assembly Program in the .tlv file
 
-- This program basically generates a waveform which oscillates from 0 to 255 and back again.
+- This program basically generates a waveform whose values starts from 0 to 255 and back again.
 
 
 
