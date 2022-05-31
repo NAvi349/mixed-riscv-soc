@@ -1,3 +1,6 @@
+
+![Mixed-Signal RISC-V](https://user-images.githubusercontent.com/66086031/171179064-be5a0f5f-7d81-48bb-8e34-e741f7c64097.png)
+
 <!-- TOC start -->
 - [Introduction](#introduction)
   * [Mixed-Signal Design](#mixed-signal-design)
